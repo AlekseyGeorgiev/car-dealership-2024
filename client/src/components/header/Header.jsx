@@ -10,7 +10,7 @@ export default function Header() {
                 
 
                 <div id="user">
-                    <a href="#">Create Offer</a>
+                    <Link to="/create-offer">Create Offer</Link>
                     <a href="#">Logout</a>
                 </div>
 
