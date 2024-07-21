@@ -1,22 +1,20 @@
-
+import { useEffect, useState } from 'react'
+import * as carsAPI from '../../api/cars-api'
+import CarListItem from './car-list-item/CarListItem'
 
 export default function CarList() {
-   
+    const [cars, setCars] = useState([])
+
+    useEffect(() => {
+        carsAPI.getAll()
+        .then(result => setCars(result))
+    }, [])
     return (
        
         <section id="catalog-page">
         <h1>All Car Offers</h1>
-       
-        <div className="allGames">
-            <div className="allGames-info">
-                
-                <h6>Brand</h6>
-                <h2>Model</h2>
-                <h2>Price</h2>
-                <a href="#" className="details-button">Details</a>
-            </div>
-
-        </div>
+        {cars.map(car => <CarListItem key={car._id}{...car}/>)}
+        
         
         
         
